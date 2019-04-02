@@ -34,7 +34,7 @@ class Trainer(object):
 
                 loss = F.cross_entropy(logit, label)
                 self.optimizer.zero_grad()
-                loss.back_ward()
+                loss.backward()
                 self.optimizer.step()
                 loss_float = float(torch.sum(loss.cpu()))
                 acc_float = float(sum((pred == label).float()) / pred.size(0))
