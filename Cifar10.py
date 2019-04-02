@@ -34,7 +34,7 @@ def main():
                                        args.GPU))
         his_max_acc.append(acc)
         print(f'    test accuracy = {acc}, best acc = {max(his_max_acc)}')
-        return his_max_acc
+    return his_max_acc
 
 
 
