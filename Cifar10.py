@@ -9,9 +9,9 @@ from torchvision.models import resnet
 def main():
     loader = DataLoader()
     if args.network in dir(senet):
-        model = getattr(senet, args.network)(num_classes=10, reduction=args.reduction)
+        model = getattr(senet, args.network)(num_classes=10)
     elif args.network in dir(resnet):
-        model = getattr(resnet, args.network)(num_classes=10, reduction=args.reduction)
+        model = getattr(resnet, args.network)(num_classes=10)
     else:
         raise ValueError('no such model')
     optimizer = optim.SGD(params=model.parameters(),
@@ -43,7 +43,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--epochs", type=int, default=256)
     parser.add_argument("--batch_size", type=int, default=128)
-    parser.add_argument("--reduction", type=int, default=16)
     parser.add_argument("--network", type=str, default='se_resnet18')
     parser.add_argument("--GPU", type=int, default=4)
     args = parser.parse_args()
