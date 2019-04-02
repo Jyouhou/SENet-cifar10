@@ -20,6 +20,7 @@ def main():
                           weight_decay=1e-4)
     scheduler = optim.lr_scheduler.StepLR(optimizer, 80, 0.1)
     trainer = Trainer(model, optimizer, scheduler, args.GPU)
+    his_max_acc = []
     for e in range(args.epochs):
         scheduler.step()
         loss, acc = trainer.train(loader.generator(True,
@@ -30,7 +31,10 @@ def main():
         acc = trainer.test(loader.generator(False,
                                        args.batch_size,
                                        args.GPU))
-        print(f'    test accuracy = {acc}')
+        his_max_acc.append(acc)
+        print(f'    test accuracy = {acc}, best acc = {max(his_max_acc)}')
+        return his_max_acc
+
 
 
 if __name__ == '__main__':
@@ -43,4 +47,6 @@ if __name__ == '__main__':
     parser.add_argument("--network", type=str, default='se_resnet18')
     parser.add_argument("--GPU", type=int, default=4)
     args = parser.parse_args()
-    main()
+    h_acc = main()
+    with open('./result.txt', 'w')as f:
+        print(','.join(h_acc), file=f)

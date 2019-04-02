@@ -1,3 +1,4 @@
+import tqdm
 import torch
 import torch.nn.functional as F
 
@@ -21,7 +22,7 @@ class Trainer(object):
             MA_loss = 6.3
         else:
             tot_acc = []
-        for step, (data, label) in enumerate(data):
+        for step, (data, label) in tqdm.tqdm(enumerate(data)):
             if train:
                 if self.GPU > 0:
                     logit = self.multi_model(data)
