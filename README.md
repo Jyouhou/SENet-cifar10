@@ -9,6 +9,7 @@ Machine Learning Homework
 ## Timeline:
 1. [x] check and re-write code
 2. [ ] 这周：reimplement the 93% experiment
+3. [ ] 做predict，输出label
 3. [ ] 下周：加东西
 
 

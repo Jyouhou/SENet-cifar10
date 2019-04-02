@@ -49,4 +49,4 @@ if __name__ == '__main__':
     args = parser.parse_args()
     h_acc = main()
     with open('./result.txt', 'w')as f:
-        print(','.join(h_acc), file=f)
+        print(','.join(map(str,h_acc)), file=f)
