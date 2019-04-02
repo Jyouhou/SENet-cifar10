@@ -11,9 +11,11 @@ class Trainer(object):
         if self.GPU > 1:
             self.multi_model = torch.nn.DataParallel(self.model, device_ids=[i for i in range(self.GPU)])
     def train(self, data):
+        self.model.train()
         return self.iteration(data, True)
 
     def test(self, data):
+        self.model.eval()
         return self.iteration(data, False)
 
     def iteration(self, data, train=True):

@@ -14,6 +14,7 @@ def main():
         model = getattr(resnet, args.network)(num_classes=10)
     else:
         raise ValueError('no such model')
+    model.cuda()
     optimizer = optim.SGD(params=model.parameters(),
                           lr=1e-1,
                           momentum=0.9,
