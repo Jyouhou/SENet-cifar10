@@ -19,7 +19,7 @@ class DataLoader(object):
             train=True,
             download=True,
             transform=transform_scheme)
-        self.training_set_size = self.train_set.train_data.shape[0]
+        self.training_set_size = self.train_set.data.shape[0]
 
         # test set
         self.test_set = CIFAR10(

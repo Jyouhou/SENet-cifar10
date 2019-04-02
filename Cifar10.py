@@ -1,19 +1,19 @@
 import argparse
 
 import torch.optim as optim
-from .Training import Trainer, DataLoader
-from senet import se_resnet18
-from torchvision.models import resnet18
-
-network = {
-    'se_resnet18':se_resnet18,
-    'resnet18':resnet18
-}
+from Training import Trainer, DataLoader
+import senet
+from torchvision.models import resnet
 
 
 def main():
     loader = DataLoader()
-    model = network[args.network](num_classes=10, reduction=args.reduction)
+    if args.network in dir(senet):
+        model = getattr(senet, args.network)(num_classes=10, reduction=args.reduction)
+    elif args.network in dir(resnet):
+        model = getattr(resnet, args.network)(num_classes=10, reduction=args.reduction)
+    else:
+        raise ValueError('no such model')
     optimizer = optim.SGD(params=model.parameters(),
                           lr=1e-1,
                           momentum=0.9,
