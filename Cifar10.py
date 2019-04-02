@@ -1,35 +1,46 @@
-import torch.nn.functional as F
-from homura import optim, lr_scheduler, callbacks, reporter
-from homura.utils.trainer import SupervisedTrainer as Trainer
-from homura.vision.data.loaders import cifar10_loaders
+import argparse
 
-from senet.baseline import resnet20
-from senet.se_resnet import se_resnet20
+import torch.optim as optim
+from .Training import Trainer, DataLoader
+from senet import se_resnet18
+from torchvision.models import resnet18
+
+network = {
+    'se_resnet18':se_resnet18,
+    'resnet18':resnet18
+}
 
 
 def main():
-    train_loader, test_loader = cifar10_loaders(args.batch_size)
-
-    if args.baseline:
-        model = resnet20()
-    else:
-        model = se_resnet20(num_classes=10, reduction=args.reduction)
-    optimizer = optim.SGD(lr=1e-1, momentum=0.9, weight_decay=1e-4)
-    scheduler = lr_scheduler.StepLR(80, 0.1)
-    tqdm_rep = reporter.TQDMReporter(range(args.epochs), callbacks=[callbacks.AccuracyCallback()])
-    trainer = Trainer(model, optimizer, F.cross_entropy, scheduler=scheduler, callbacks=[tqdm_rep])
-    for _ in tqdm_rep:
-        trainer.train(train_loader)
-        trainer.test(test_loader)
+    loader = DataLoader()
+    model = network[args.network](num_classes=10, reduction=args.reduction)
+    optimizer = optim.SGD(params=model.parameters(),
+                          lr=1e-1,
+                          momentum=0.9,
+                          weight_decay=1e-4)
+    scheduler = optim.lr_scheduler.StepLR(optimizer, 80, 0.1)
+    trainer = Trainer(model, optimizer, scheduler, args.GPU)
+    for e in range(args.epochs):
+        scheduler.step()
+        loss, acc = trainer.train(loader.generator(True,
+                                       args.batch_size,
+                                       args.GPU))
+        print(f'===== ===== Epoch {e+1}/{args.epochs} ===== =====')
+        print(f'    train accuracy = {acc}, loss = {loss}')
+        acc = trainer.test(loader.generator(False,
+                                       args.batch_size,
+                                       args.GPU))
+        print(f'    test accuracy = {acc}')
 
 
 if __name__ == '__main__':
-    import argparse
 
-    p = argparse.ArgumentParser()
-    p.add_argument("--epochs", type=int, default=200)
-    p.add_argument("--batch_size", type=int, default=64)
-    p.add_argument("--reduction", type=int, default=16)
-    p.add_argument("--baseline", action="store_true")
-    args = p.parse_args()
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--epochs", type=int, default=256)
+    parser.add_argument("--batch_size", type=int, default=128)
+    parser.add_argument("--reduction", type=int, default=16)
+    parser.add_argument("--network", type=str, default='se_resnet18')
+    parser.add_argument("--GPU", type=int, default=4)
+    args = parser.parse_args()
     main()
