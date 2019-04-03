@@ -2,8 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="181fffb2-d10f-4135-94c0-2f6a7a590f50" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Cifar10.py" afterPath="$PROJECT_DIR$/Cifar10.py" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/homura/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/callbacks.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/debug.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/liblog.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/lr_scheduler.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/metrics/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/metrics/commons.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/metrics/generative/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/metrics/generative/utils.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/metrics/segmentation.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/attention.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/conditional_batchnorm.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/discretization.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/functional/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/functional/convert.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/functional/discretization.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/functional/loss.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/modules/miscs.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/optim.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/reporters.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/reproductivity.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/trainers.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/_optimizers/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/_optimizers/adabound.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/_vocabulary.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/containers.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/environment.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/inferencer.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/miscs.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/reporter_backends.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/utils/runner.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/data/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/data/custom_dataset.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/data/folder.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/data/loaders.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/data/prefetcher.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/data/statistics.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/_intialization.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/classification/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/classification/densenet.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/classification/resnet.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/classification/wideresnet.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/segmentation/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/segmentation/msdnet.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/models/segmentation/unet.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/transforms/__init__.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/homura/vision/transforms/erase.py" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +65,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="120">
+                <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Cifar10.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Cifar10.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+            <state relative-caret-position="360">
+              <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -29,8 +93,8 @@
       <file leaf-file-name="dataloader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Training/dataloader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="29" />
+            <state relative-caret-position="150">
+              <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -41,8 +105,8 @@
       <file leaf-file-name="trainer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Training/trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
+            <state relative-caret-position="135">
+              <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -53,13 +117,12 @@
       <file leaf-file-name="se_resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+            <state relative-caret-position="689">
+              <caret line="144" column="16" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="16" />
               <folding>
+                <element signature="e#62#83#0" expanded="true" />
                 <element signature="e#646#1499#0" expanded="false" />
                 <element signature="e#1537#2711#0" expanded="false" />
-                <element signature="e#2751#3011#0" expanded="false" />
-                <element signature="e#3051#3311#0" expanded="false" />
                 <element signature="e#3369#3772#0" expanded="false" />
                 <element signature="e#3813#4075#0" expanded="false" />
                 <element signature="e#4116#4378#0" expanded="false" />
@@ -140,23 +203,12 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="SENet-cifar10" type="b2602c69:ProjectViewProjectNode" />
               <item name="SENet-cifar10" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SENet-cifar10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SENet-cifar10" type="462c0819:PsiDirectoryNode" />
-              <item name="homura" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SENet-cifar10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SENet-cifar10" type="462c0819:PsiDirectoryNode" />
-              <item name="senet" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SENet-cifar10" type="b2602c69:ProjectViewProjectNode" />
@@ -168,6 +220,7 @@
         </subPane>
       </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,11 +295,66 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Cifar10.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="165">
+            <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Training/dataloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="32" lean-forward="false" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Training/trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="870">
+          <caret line="144" column="16" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="16" />
+          <folding>
+            <element signature="e#62#83#0" expanded="true" />
+            <element signature="e#646#1499#0" expanded="false" />
+            <element signature="e#1537#2711#0" expanded="false" />
+            <element signature="e#3369#3772#0" expanded="false" />
+            <element signature="e#3813#4075#0" expanded="false" />
+            <element signature="e#4116#4378#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/senet/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="true" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -260,24 +368,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Training/optimizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Training/optimizer.py" />
     <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#62#83#0" expanded="false" />
+            <element signature="e#62#83#0" expanded="true" />
             <element signature="e#646#1499#0" expanded="false" />
             <element signature="e#1537#2711#0" expanded="false" />
-            <element signature="e#2751#3011#0" expanded="false" />
-            <element signature="e#3051#3311#0" expanded="false" />
             <element signature="e#3369#3772#0" expanded="false" />
             <element signature="e#3813#4075#0" expanded="false" />
             <element signature="e#4116#4378#0" expanded="false" />
@@ -285,14 +384,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Training/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Training/test.py" />
     <entry file="file://$PROJECT_DIR$/Cifar10.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -307,7 +399,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -338,37 +429,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Training/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Training/test.py" />
     <entry file="file://$PROJECT_DIR$/homura/vision/data/loaders.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3015">
           <caret line="208" column="29" lean-forward="false" selection-start-line="208" selection-start-column="29" selection-end-line="209" selection-end-column="62" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Training/optimizer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Training/optimizer.py" />
     <entry file="file://$PROJECT_DIR$/Training/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="28" lean-forward="false" selection-start-line="1" selection-start-column="28" selection-end-line="1" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -376,11 +449,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
           <caret line="339" column="26" lean-forward="false" selection-start-line="339" selection-start-column="17" selection-end-line="339" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-            <element signature="e#791#11713#0" expanded="false" />
-            <element signature="e#13086#16101#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -389,7 +458,7 @@
         <state relative-caret-position="30">
           <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -398,7 +467,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="24" lean-forward="false" selection-start-line="0" selection-start-column="24" selection-end-line="0" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -414,9 +482,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -428,15 +493,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Training/trainer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="14" lean-forward="false" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+        <state relative-caret-position="689">
+          <caret line="144" column="16" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="16" />
           <folding>
+            <element signature="e#62#83#0" expanded="true" />
             <element signature="e#646#1499#0" expanded="false" />
             <element signature="e#1537#2711#0" expanded="false" />
-            <element signature="e#2751#3011#0" expanded="false" />
-            <element signature="e#3051#3311#0" expanded="false" />
             <element signature="e#3369#3772#0" expanded="false" />
             <element signature="e#3813#4075#0" expanded="false" />
             <element signature="e#4116#4378#0" expanded="false" />
@@ -446,8 +520,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Training/dataloader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="29" lean-forward="false" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="29" />
+        <state relative-caret-position="150">
+          <caret line="10" column="32" lean-forward="false" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
           <folding>
             <element signature="e#0#12#0" expanded="true" />
           </folding>
@@ -457,28 +531,18 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="165">
-            <caret line="11" column="16" lean-forward="false" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <first_editor relative-caret-position="120">
+            <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Training/trainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="22" column="22" lean-forward="true" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Cifar10.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="43" column="38" lean-forward="true" selection-start-line="43" selection-start-column="38" selection-end-line="43" selection-end-column="38" />
+        <state relative-caret-position="360">
+          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>

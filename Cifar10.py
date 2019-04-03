@@ -1,4 +1,5 @@
 import argparse
+import time
 
 import torch.optim as optim
 from Training import Trainer, DataLoader
@@ -24,16 +25,21 @@ def main():
     his_max_acc = []
     for e in range(args.epochs):
         scheduler.step()
+        t0 = time.time()
         loss, acc = trainer.train(loader.generator(True,
                                        args.batch_size,
                                        args.GPU))
+        t1 = time.time()
         print(f'===== ===== Epoch {e+1}/{args.epochs} ===== =====')
-        print(f'    train accuracy = {acc}, loss = {loss}')
+        print(f'    train accuracy = {acc}, loss = {loss}, time lapse {t1-t0} seconds')
+
+        t0 = time.time()
         acc = trainer.test(loader.generator(False,
                                        args.batch_size,
                                        args.GPU))
         his_max_acc.append(acc)
-        print(f'    test accuracy = {acc}, best acc = {max(his_max_acc)}')
+        t1 = time.time()
+        print(f'    test accuracy = {acc}, best acc = {max(his_max_acc)}, time lapse {t1-t0} seconds')
     return his_max_acc
 
 
