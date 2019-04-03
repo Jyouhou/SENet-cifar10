@@ -52,6 +52,9 @@ if __name__ == '__main__':
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--network", type=str, default='se_resnet18')
     parser.add_argument("--GPU", type=int, default=4)
+    parser.add_argument("--lr", type=float, default=1e0)
+    parser.add_argument("--m", type=float, default=9e-1)
+    parser.add_argument("--wd", type=float, default=1e-4)
     args = parser.parse_args()
     h_acc = main()
     with open('./result.txt', 'w')as f:

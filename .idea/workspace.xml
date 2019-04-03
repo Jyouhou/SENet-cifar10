@@ -2,59 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="181fffb2-d10f-4135-94c0-2f6a7a590f50" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Cifar10.py" afterPath="$PROJECT_DIR$/Cifar10.py" />
-      <change beforePath="$PROJECT_DIR$/homura/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/callbacks.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/debug.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/liblog.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/lr_scheduler.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/metrics/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/metrics/commons.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/metrics/generative/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/metrics/generative/utils.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/metrics/segmentation.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/attention.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/conditional_batchnorm.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/discretization.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/functional/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/functional/convert.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/functional/discretization.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/functional/loss.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/modules/miscs.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/optim.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/reporters.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/reproductivity.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/trainers.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/_optimizers/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/_optimizers/adabound.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/_vocabulary.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/containers.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/environment.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/inferencer.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/miscs.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/reporter_backends.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/utils/runner.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/data/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/data/custom_dataset.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/data/folder.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/data/loaders.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/data/prefetcher.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/data/statistics.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/_intialization.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/classification/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/classification/densenet.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/classification/resnet.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/classification/wideresnet.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/segmentation/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/segmentation/msdnet.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/models/segmentation/unet.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/transforms/__init__.py" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/homura/vision/transforms/erase.py" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -81,8 +29,8 @@
       <file leaf-file-name="Cifar10.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Cifar10.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+            <state relative-caret-position="482">
+              <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -541,8 +489,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Cifar10.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="20" lean-forward="true" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+        <state relative-caret-position="482">
+          <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
