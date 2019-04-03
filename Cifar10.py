@@ -49,10 +49,10 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--epochs", type=int, default=256)
-    parser.add_argument("--batch_size", type=int, default=128)
-    parser.add_argument("--network", type=str, default='se_resnet18')
+    parser.add_argument("--batch_size", type=int, default=1024)
+    parser.add_argument("--network", type=str, default='se_resnet20')
     parser.add_argument("--GPU", type=int, default=4)
-    parser.add_argument("--lr", type=float, default=1e-1)
+    parser.add_argument("--lr", type=float, default=1e0)
     parser.add_argument("--m", type=float, default=9e-1)
     parser.add_argument("--wd", type=float, default=1e-4)
     args = parser.parse_args()

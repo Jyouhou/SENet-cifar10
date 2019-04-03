@@ -14,4 +14,4 @@ Machine Learning Homework
 
 
 ## how to run
-`rlaunch --cpu=32 --gpu=4 --memory=65536 -- python3 -i Cifar10.py`
+`rlaunch --cpu=8 --gpu=4 --memory=65536 -- python3 -i Cifar10.py`

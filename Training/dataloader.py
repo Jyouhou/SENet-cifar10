@@ -39,7 +39,7 @@ class DataLoader(object):
 
         return _generator(torch.utils.data.DataLoader(
             self.train_set if train else self.test_set,
-            batch_size=batch_size if train else batch_size // 100 * 100 // GPU_num * GPU_num,
+            batch_size=batch_size,
             shuffle=True,
             drop_last=train,
             num_workers=num_worker
