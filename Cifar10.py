@@ -17,9 +17,9 @@ def main():
         raise ValueError('no such model')
     model.cuda()
     optimizer = optim.SGD(params=model.parameters(),
-                          lr=1e-1,
-                          momentum=0.9,
-                          weight_decay=1e-4)
+                          lr=args.lr,
+                          momentum=args.m,
+                          weight_decay=args.wd)
     scheduler = optim.lr_scheduler.StepLR(optimizer, 80, 0.1)
     trainer = Trainer(model, optimizer, scheduler, args.GPU)
     his_max_acc = []
@@ -52,7 +52,7 @@ if __name__ == '__main__':
     parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--network", type=str, default='se_resnet18')
     parser.add_argument("--GPU", type=int, default=4)
-    parser.add_argument("--lr", type=float, default=1e0)
+    parser.add_argument("--lr", type=float, default=1e-1)
     parser.add_argument("--m", type=float, default=9e-1)
     parser.add_argument("--wd", type=float, default=1e-4)
     args = parser.parse_args()
