@@ -17,6 +17,6 @@ Machine Learning Homework
 
 
 ## Performance
-| experiment | Optim | Acc | code |
-|:------:|:------:|:------:|:------:|
-| 0404 | SGD(lr=0.1,m=0.9,wd=1e-4, bs=64) | 92.67 | `rlaunch --cpu=8 --gpu=4 --memory=65536 -- python3 -i Cifar10.py` |
+| experiment | Data Aug | Optim | Acc | code |
+|:------:|:------------:|:------:|:------:|:------------:|
+| 0404 | `pad=4, crop=32; horizontal flip` | `SGD(lr=0.1,m=0.9,wd=1e-4, bs=64)` | 92.67 | `rlaunch --cpu=8 --gpu=4 --memory=65536 -- python3 -i Cifar10.py` |
