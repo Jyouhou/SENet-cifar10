@@ -3,15 +3,29 @@ from torchvision.datasets import CIFAR10
 import torchvision.transforms as transforms
 
 class DataLoader(object):
-    def __init__(self):
-
-        transform_scheme = transforms.Compose([
-            transforms.RandomCrop(32, padding=4),
-            transforms.RandomHorizontalFlip(),
-            transforms.ToTensor(),
-            transforms.Normalize((0.4914, 0.4822, 0.4465),
-                                 (0.2023, 0.1994, 0.2010)),
-        ])
+    def __init__(self, aug=True):
+        if aug:
+            transform_scheme = transforms.Compose([
+                transforms.RandomResizedCrop(32, 
+                                             scale=(0.90, 1.0), 
+                                             ratio=(0.75, 1.3333333333333333), 
+                                             interpolation=2),
+                transforms.RandomRotation(10),
+                transforms.RandomCrop(32, padding=4),
+                transforms.RandomHorizontalFlip(),
+                transforms.ColorJitter(0.1, 0.1, 0.1, 0.1),
+                transforms.ToTensor(),
+                transforms.Normalize((0.4914, 0.4822, 0.4465),
+                                     (0.2023, 0.1994, 0.2010)),
+            ])
+        else:
+            transform_scheme = transforms.Compose([
+                transforms.RandomCrop(32, padding=4),
+                transforms.RandomHorizontalFlip(),
+                transforms.ToTensor(),
+                transforms.Normalize((0.4914, 0.4822, 0.4465),
+                                     (0.2023, 0.1994, 0.2010)),
+            ])
 
         # training set
         self.train_set = CIFAR10(

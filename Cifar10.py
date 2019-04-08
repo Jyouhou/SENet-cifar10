@@ -8,7 +8,7 @@ from torchvision.models import resnet
 
 
 def main():
-    loader = DataLoader()
+    loader = DataLoader(aug=args.aug)
     if args.network in dir(senet):
         model = getattr(senet, args.network)(num_classes=10)
     elif args.network in dir(resnet):
@@ -55,6 +55,7 @@ if __name__ == '__main__':
     parser.add_argument("--lr", type=float, default=1e0)
     parser.add_argument("--m", type=float, default=9e-1)
     parser.add_argument("--wd", type=float, default=1e-4)
+    parser.add_argument("--aug", type=bool, action='store_true')
     args = parser.parse_args()
     h_acc = main()
     with open('./result.txt', 'w')as f:

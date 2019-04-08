@@ -8,7 +8,8 @@ from torchvision.models import ResNet
 from senet.se_layer import SqueezeExcitationLayer as SE
 
 __all__ = ['se_resnet18', 'se_resnet34', 'se_resnet50', 'se_resnet101',
-           'se_resnet152', 'se_resnet20', 'se_resnet32', 'se_resnet56']
+           'se_resnet152', 'se_resnet20', 'se_resnet32', 'se_resnet44', 'se_resnet56', 'se_resnet110',
+           'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110']
 
 model_urls = {
     'se_resnet18': None,
@@ -20,6 +21,37 @@ model_urls = {
 
 def conv3x3(in_planes, out_planes, stride=1):
     return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False)
+
+class BasicBlock(nn.Module):
+    expansion = 1
+
+    def __init__(self, inplanes, planes, stride=1, downsample=None):
+        super(BasicBlock, self).__init__()
+        self.conv1 = conv3x3(inplanes, planes, stride)
+        self.bn1 = nn.BatchNorm2d(planes)
+        self.relu = nn.ReLU(inplace=True)
+        self.conv2 = conv3x3(planes, planes)
+        self.bn2 = nn.BatchNorm2d(planes)
+        self.downsample = downsample
+        self.stride = stride
+
+    def forward(self, x):
+        identity = x
+
+        out = self.conv1(x)
+        out = self.bn1(out)
+        out = self.relu(out)
+
+        out = self.conv2(out)
+        out = self.bn2(out)
+
+        if self.downsample is not None:
+            identity = self.downsample(x)
+
+        out += identity
+        out = self.relu(out)
+
+        return out
 
 
 class SEBasicBlock(nn.Module):
@@ -220,10 +252,61 @@ def se_resnet32(**kwargs):
     model = CifarSENet(SEBasicBlock, 5, **kwargs)
     return model
 
+def se_resnet44(**kwargs):
+    """Constructs a ResNet-34 model.
+
+    """
+    model = CifarSENet(SEBasicBlock, 5, **kwargs)
+    return model
+
 
 def se_resnet56(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
     model = CifarSENet(SEBasicBlock, 9, **kwargs)
+    return model
+
+def se_resnet110(**kwargs):
+    """Constructs a ResNet-34 model.
+
+    """
+    model = CifarSENet(SEBasicBlock, 18, **kwargs)
+    return model
+
+def resnet20(**kwargs):
+    """Constructs a ResNet-18 model.
+
+    """
+    model = CifarSENet(BasicBlock, 3, **kwargs)
+    return model
+
+
+def resnet32(**kwargs):
+    """Constructs a ResNet-34 model.
+
+    """
+    model = CifarSENet(BasicBlock, 5, **kwargs)
+    return model
+
+def resnet44(**kwargs):
+    """Constructs a ResNet-34 model.
+
+    """
+    model = CifarSENet(BasicBlock, 5, **kwargs)
+    return model
+
+
+def resnet56(**kwargs):
+    """Constructs a ResNet-34 model.
+
+    """
+    model = CifarSENet(BasicBlock, 9, **kwargs)
+    return model
+
+def resnet110(**kwargs):
+    """Constructs a ResNet-34 model.
+
+    """
+    model = CifarSENet(BasicBlock, 18, **kwargs)
     return model
