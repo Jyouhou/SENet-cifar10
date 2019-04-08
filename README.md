@@ -10,6 +10,10 @@ Machine Learning Homework
 2. [x] 这周：reimplement the 93% experiment (92.67) 
 3. [ ] 下周：整理几个经典的classification paper，加东西
 
+### To-Do
+1. [ ] 周1：check paper，找出几个重要的点
+2. [ ] 周2：简单implement+实验一下
+
 
 ## how to run
 `rlaunch --cpu=8 --gpu=4 --memory=65536 -- python3 -i Cifar10.py`
