@@ -55,7 +55,7 @@ if __name__ == '__main__':
     parser.add_argument("--lr", type=float, default=1e0)
     parser.add_argument("--m", type=float, default=9e-1)
     parser.add_argument("--wd", type=float, default=1e-4)
-    parser.add_argument("--aug", type=bool, action='store_true')
+    parser.add_argument("--aug", action='store_true')
     args = parser.parse_args()
     h_acc = main()
     with open('./result.txt', 'w')as f:

@@ -6,12 +6,12 @@ class DataLoader(object):
     def __init__(self, aug=True):
         if aug:
             transform_scheme = transforms.Compose([
-                transforms.RandomResizedCrop(32, 
-                                             scale=(0.90, 1.0), 
-                                             ratio=(0.75, 1.3333333333333333), 
+                transforms.RandomResizedCrop(32,
+                                             scale=(0.95, 1.0),
+                                             ratio=(0.9, 1.1),
                                              interpolation=2),
                 transforms.RandomRotation(10),
-                transforms.RandomCrop(32, padding=4),
+                transforms.RandomCrop(32, padding=2),
                 transforms.RandomHorizontalFlip(),
                 transforms.ColorJitter(0.1, 0.1, 0.1, 0.1),
                 transforms.ToTensor(),
@@ -27,6 +27,12 @@ class DataLoader(object):
                                      (0.2023, 0.1994, 0.2010)),
             ])
 
+        test_transform_scheme = transforms.Compose([
+            transforms.ToTensor(),
+            transforms.Normalize((0.4914, 0.4822, 0.4465),
+                                 (0.2023, 0.1994, 0.2010)),
+        ])
+
         # training set
         self.train_set = CIFAR10(
             root=f'./data/',
@@ -40,7 +46,7 @@ class DataLoader(object):
             root=f'./data/',
             train=False,
             download=True,
-            transform=transform_scheme)
+            transform=test_transform_scheme)
 
     def generator(self, train=True, batch_size=128, GPU_num=4, num_worker=8, CUDA=True):
 
