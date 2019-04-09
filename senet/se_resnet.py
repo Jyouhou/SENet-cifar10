@@ -73,7 +73,11 @@ class Bottleneck(nn.Module):
         self.conv3 = conv1x1(planes, planes * self.expansion)
         self.bn3 = nn.BatchNorm2d(planes * self.expansion)
         self.relu = nn.ReLU(inplace=True)
-        self.downsample = downsample
+        if inplanes != planes:
+            self.downsample = nn.Sequential(nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False),
+                                            nn.BatchNorm2d(planes))
+        else:
+            self.downsample = lambda x: x
         self.stride = stride
 
     def forward(self, x):
@@ -138,7 +142,7 @@ class SEBasicBlock(nn.Module):
 class SEBottleneck(nn.Module):
     expansion = 4
 
-    def __init__(self, inplanes, planes, stride=1, downsample=None, reduction=16):
+    def __init__(self, inplanes, planes, stride=1, reduction=16):
         super(SEBottleneck, self).__init__()
         self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
@@ -149,7 +153,11 @@ class SEBottleneck(nn.Module):
         self.bn3 = nn.BatchNorm2d(planes * 4)
         self.relu = nn.ReLU(inplace=True)
         self.se = SE(planes * 4, reduction)
-        self.downsample = downsample
+        if inplanes != planes:
+            self.downsample = nn.Sequential(nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False),
+                                            nn.BatchNorm2d(planes))
+        else:
+            self.downsample = lambda x: x
         self.stride = stride
 
     def forward(self, x):

@@ -32,4 +32,4 @@ Machine Learning Homework
 | experiment | network | Data Aug | Optim | Acc | code |
 |:------:|:------------:|:------:|:------:|:------:|:------:|:------------:|
 | 0404 | se20 | `pad=4, crop=32; horizontal flip` | `SGD(lr=0.1,m=0.9,wd=1e-4, bs=64)` | 92.67 | `rlaunch --cpu=8 --gpu=4 --memory=65536 -- python3 -i Cifar10.py` |
-| 0409 | se110 | `assorted` | `SGD(lr=1,m=0.9,wd=1e-4, bs=256)` | 93.78 | `rlaunch --cpu=8 --gpu=4 --memory=65536 -- python3 -i Cifar10.py --network=se_resnet110 --aug --batch_size=256` |
+| 0409 | se110(no bottleneck) | `assorted` | `SGD(lr=1,m=0.9,wd=1e-4, bs=256)` | 93.78 | `rlaunch --cpu=8 --gpu=4 --memory=65536 -- python3 -i Cifar10.py --network=se_resnet110 --aug --batch_size=256` |
