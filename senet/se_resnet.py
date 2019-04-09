@@ -73,9 +73,9 @@ class Bottleneck(nn.Module):
         self.conv3 = conv1x1(planes, planes * self.expansion)
         self.bn3 = nn.BatchNorm2d(planes * self.expansion)
         self.relu = nn.ReLU(inplace=True)
-        if inplanes != planes:
+        if inplanes != planes * self.expansion:
             self.downsample = nn.Sequential(nn.Conv2d(inplanes, planes * self.expansion, kernel_size=1, stride=stride, bias=False),
-                                            nn.BatchNorm2d(planes))
+                                            nn.BatchNorm2d(planes * self.expansion))
         else:
             self.downsample = lambda x: x
         self.stride = stride
@@ -155,7 +155,7 @@ class SEBottleneck(nn.Module):
         self.se = SE(planes * self.expansion, reduction)
         if inplanes != planes * self.expansion:
             self.downsample = nn.Sequential(nn.Conv2d(inplanes, planes * self.expansion, kernel_size=1, stride=stride, bias=False),
-                                            nn.BatchNorm2d(planes))
+                                            nn.BatchNorm2d(planes * self.expansion))
         else:
             self.downsample = lambda x: x
         self.stride = stride
