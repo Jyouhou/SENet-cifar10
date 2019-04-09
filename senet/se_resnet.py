@@ -43,6 +43,8 @@ class BasicBlock(nn.Module):
             self.downsample = lambda x: x
         self.stride = stride
 
+        self.output = planes * self.expansion
+
     def forward(self, x):
         identity = x
 
@@ -79,6 +81,8 @@ class Bottleneck(nn.Module):
         else:
             self.downsample = lambda x: x
         self.stride = stride
+
+        self.output = planes * self.expansion
 
     def forward(self, x):
         identity = x
@@ -119,6 +123,7 @@ class SEBasicBlock(nn.Module):
         else:
             self.downsample = lambda x: x
         self.stride = stride
+        self.output = planes * self.expansion
 
     def forward(self, x):
         residual = x
@@ -159,6 +164,7 @@ class SEBottleneck(nn.Module):
         else:
             self.downsample = lambda x: x
         self.stride = stride
+        self.output = planes * self.expansion
 
     def forward(self, x):
         residual = x
@@ -270,7 +276,7 @@ class CifarSENet(nn.Module):
         layers = []
         for stride in strides:
             layers.append(block(self.inplane, planes, stride, reduction))
-            self.inplane = planes
+            self.inplane = layers[-1].output
 
         return nn.Sequential(*layers)
 
