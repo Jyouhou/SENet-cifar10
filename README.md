@@ -19,8 +19,8 @@ Machine Learning Homework
 ### To-Do
 1. [x] 周1：check paper，找出几个重要的点
 2. [x] 周1：简单implement
-3. [ ] 周2：把所有实验跑起来
-3. [ ] 周2：next step
+3. [ ] 周2：add bottlenecl
+3. [ ] 周3：认真研读resnet和senet
 
 
 ## how to run
