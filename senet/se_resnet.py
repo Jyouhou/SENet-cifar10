@@ -260,7 +260,7 @@ class CifarSENet(nn.Module):
         self.layer2 = self._make_layer(block, 32, blocks=n_size, stride=2, reduction=reduction)
         self.layer3 = self._make_layer(block, 64, blocks=n_size, stride=2, reduction=reduction)
         self.avgpool = nn.AdaptiveAvgPool2d(1)
-        self.fc = nn.Linear(64, num_classes)
+        self.fc = nn.Linear(self.inplane, num_classes)
         self.initialize()
 
     def initialize(self):
