@@ -60,8 +60,8 @@ if __name__ == '__main__':
     parser.add_argument("--wd", type=float, default=1e-4)
     parser.add_argument("--aug", action='store_true')
     args = parser.parse_args()
-    ID = f'{random.random():.6f}'
-    print(f'ID = {ID}')
     h_acc = main()
+    ID = f'{random.random():.6f}'
+    print(f'saved to: ID = {ID}')
     with open(f'./result-{ID}.txt', 'w')as f:
         print(','.join(map(str,h_acc)), file=f)

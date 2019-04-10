@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="181fffb2-d10f-4135-94c0-2f6a7a590f50" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/Cifar10.py" afterPath="$PROJECT_DIR$/Cifar10.py" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/Training/trainer.py" afterPath="$PROJECT_DIR$/Training/trainer.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -26,14 +28,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Cifar10.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cifar10.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cifar10.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+            <state relative-caret-position="133">
+              <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1554915466223" expanded="true" signature="177:202" ph="..." />
+                <marker date="1554915800291" expanded="true" signature="177:202" ph="..." />
               </folding>
             </state>
           </provider>
@@ -42,7 +44,7 @@
       <file leaf-file-name="dataloader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Training/dataloader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
+            <state relative-caret-position="330">
               <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
@@ -54,8 +56,8 @@
       <file leaf-file-name="se_resnet.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+            <state relative-caret-position="142">
+              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
               <folding>
                 <element signature="e#62#83#0" expanded="true" />
                 <element signature="e#969#2083#0" expanded="false" />
@@ -65,11 +67,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trainer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="trainer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Training/trainer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -122,9 +124,9 @@
         <option value="$PROJECT_DIR$/Training/__init__.py" />
         <option value="$PROJECT_DIR$/Training/dataloader.py" />
         <option value="$PROJECT_DIR$/senet/se_resnet.py" />
-        <option value="$PROJECT_DIR$/Training/trainer.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Cifar10.py" />
+        <option value="$PROJECT_DIR$/Training/trainer.py" />
       </list>
     </option>
   </component>
@@ -321,7 +323,7 @@
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1554915466223" expanded="true" signature="177:202" ph="..." />
+            <marker date="1554915800291" expanded="true" signature="177:202" ph="..." />
           </folding>
         </state>
       </provider>
@@ -418,7 +420,7 @@
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1554915466223" expanded="true" signature="177:202" ph="..." />
+            <marker date="1554915800291" expanded="true" signature="177:202" ph="..." />
           </folding>
         </state>
       </provider>
@@ -429,7 +431,7 @@
           <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1554915466223" expanded="true" signature="177:202" ph="..." />
+            <marker date="1554915800291" expanded="true" signature="177:202" ph="..." />
           </folding>
         </state>
       </provider>
@@ -514,7 +516,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1554915466223" expanded="true" signature="177:202" ph="..." />
+            <marker date="1554915800291" expanded="true" signature="177:202" ph="..." />
           </folding>
         </state>
       </provider>
@@ -603,24 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Training/trainer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Training/dataloader.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -632,10 +616,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Cifar10.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="35" column="44" lean-forward="true" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+            <marker date="1554915800291" expanded="true" signature="177:202" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Training/dataloader.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="25" lean-forward="true" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        <state relative-caret-position="142">
+          <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
           <folding>
             <element signature="e#62#83#0" expanded="true" />
             <element signature="e#969#2083#0" expanded="false" />
@@ -644,14 +649,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cifar10.py">
+    <entry file="file://$PROJECT_DIR$/Training/trainer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1554915466223" expanded="true" signature="177:202" ph="..." />
-          </folding>
+        <state relative-caret-position="255">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
