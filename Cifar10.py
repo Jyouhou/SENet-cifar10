@@ -1,6 +1,8 @@
 import argparse
 import time
 
+import random
+
 import torch.optim as optim
 from Training import Trainer, DataLoader
 import senet
@@ -58,6 +60,8 @@ if __name__ == '__main__':
     parser.add_argument("--wd", type=float, default=1e-4)
     parser.add_argument("--aug", action='store_true')
     args = parser.parse_args()
+    ID = f'{random.random():.6f}'
+    print(f'ID = {ID}')
     h_acc = main()
-    with open('./result.txt', 'w')as f:
+    with open(f'./result-{ID}.txt', 'w')as f:
         print(','.join(map(str,h_acc)), file=f)
