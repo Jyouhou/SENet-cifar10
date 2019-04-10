@@ -16,9 +16,10 @@ class Trainer(object):
 
     def test(self, data):
         self.model.eval()
+        _ = self.iteration(data, True, True)
         return self.iteration(data, False)
 
-    def iteration(self, data, train=True):
+    def iteration(self, data, train=True, only_update_batch=False):
         if train:
             MA_acc = 0
             MA_loss = 6.3
@@ -35,11 +36,15 @@ class Trainer(object):
                 loss = F.cross_entropy(logit, label)
                 self.optimizer.zero_grad()
                 loss.backward()
-                self.optimizer.step()
-                loss_float = float(torch.sum(loss.cpu()))
-                acc_float = float(sum((pred == label).float()) / pred.size(0))
-                MA_loss *= 0.9; MA_loss += 0.1 * loss_float
-                MA_acc *= 0.9; MA_acc += 0.1 * acc_float
+                if not only_update_batch:
+                    self.optimizer.step()
+                    loss_float = float(torch.sum(loss.cpu()))
+                    acc_float = float(sum((pred == label).float()) / pred.size(0))
+                    MA_loss *= 0.9; MA_loss += 0.1 * loss_float
+                    MA_acc *= 0.9; MA_acc += 0.1 * acc_float
+                else:
+                    if step > 20:
+                        break
             else:
                 with torch.no_grad():
                     if self.GPU > 0:

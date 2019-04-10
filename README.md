@@ -20,7 +20,7 @@ Machine Learning Homework
 1. [x] 周1：check paper，找出几个重要的点
 2. [x] 周1：简单implement
 3. [x] 周2：add bottleneck
-3. [ ] 周3：认真研读resnet和senet
+3. [ ] 周3-4：认真研读resnet和senet，复现出paper的accuracy
 
 
 ## how to run

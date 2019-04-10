@@ -20,7 +20,8 @@ def main():
                           lr=args.lr,
                           momentum=args.m,
                           weight_decay=args.wd)
-    scheduler = optim.lr_scheduler.StepLR(optimizer, 80, 0.1)
+    scheduler = optim.lr_scheduler.MultiStepLR(
+            optimizer, milestones=[85, 130], gamma=0.1)
     trainer = Trainer(model, optimizer, scheduler, args.GPU)
     his_max_acc = []
     for e in range(args.epochs):
@@ -49,10 +50,10 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--epochs", type=int, default=256)
-    parser.add_argument("--batch_size", type=int, default=1024)
+    parser.add_argument("--batch_size", type=int, default=128)
     parser.add_argument("--network", type=str, default='se_resnet20')
-    parser.add_argument("--GPU", type=int, default=4)
-    parser.add_argument("--lr", type=float, default=1e0)
+    parser.add_argument("--GPU", type=int, default=2)
+    parser.add_argument("--lr", type=float, default=1e-1)
     parser.add_argument("--m", type=float, default=9e-1)
     parser.add_argument("--wd", type=float, default=1e-4)
     parser.add_argument("--aug", action='store_true')

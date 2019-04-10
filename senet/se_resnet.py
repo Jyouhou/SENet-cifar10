@@ -19,6 +19,8 @@ model_urls = {
     'se_resnet152': None,
 }
 
+BN_momentum = 0.8
+
 def conv3x3(in_planes, out_planes, stride=1):
     return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False)
 
@@ -32,13 +34,13 @@ class BasicBlock(nn.Module):
     def __init__(self, inplanes, planes, stride=1, downsample=None):
         super(BasicBlock, self).__init__()
         self.conv1 = conv3x3(inplanes, planes, stride)
-        self.bn1 = nn.BatchNorm2d(planes)
+        self.bn1 = nn.BatchNorm2d(planes, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes)
-        self.bn2 = nn.BatchNorm2d(planes)
+        self.bn2 = nn.BatchNorm2d(planes, momentum=BN_momentum)
         if inplanes != planes:
             self.downsample = nn.Sequential(nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False),
-                                            nn.BatchNorm2d(planes))
+                                            nn.BatchNorm2d(planes, momentum=BN_momentum))
         else:
             self.downsample = lambda x: x
         self.stride = stride
@@ -69,15 +71,15 @@ class Bottleneck(nn.Module):
     def __init__(self, inplanes, planes, stride=1, downsample=None):
         super(Bottleneck, self).__init__()
         self.conv1 = conv1x1(inplanes, planes)
-        self.bn1 = nn.BatchNorm2d(planes)
+        self.bn1 = nn.BatchNorm2d(planes, momentum=BN_momentum)
         self.conv2 = conv3x3(planes, planes, stride)
-        self.bn2 = nn.BatchNorm2d(planes)
+        self.bn2 = nn.BatchNorm2d(planes, momentum=BN_momentum)
         self.conv3 = conv1x1(planes, planes * self.expansion)
-        self.bn3 = nn.BatchNorm2d(planes * self.expansion)
+        self.bn3 = nn.BatchNorm2d(planes * self.expansion, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         if inplanes != planes * self.expansion:
             self.downsample = nn.Sequential(nn.Conv2d(inplanes, planes * self.expansion, kernel_size=1, stride=stride, bias=False),
-                                            nn.BatchNorm2d(planes * self.expansion))
+                                            nn.BatchNorm2d(planes * self.expansion, momentum=BN_momentum))
         else:
             self.downsample = lambda x: x
         self.stride = stride
@@ -112,14 +114,14 @@ class SEBasicBlock(nn.Module):
     def __init__(self, inplanes, planes, stride=1, reduction=16):
         super(SEBasicBlock, self).__init__()
         self.conv1 = conv3x3(inplanes, planes, stride)
-        self.bn1 = nn.BatchNorm2d(planes)
+        self.bn1 = nn.BatchNorm2d(planes, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes, 1)
-        self.bn2 = nn.BatchNorm2d(planes)
+        self.bn2 = nn.BatchNorm2d(planes, momentum=BN_momentum)
         self.se = SE(planes, reduction)
         if inplanes != planes:
             self.downsample = nn.Sequential(nn.Conv2d(inplanes, planes, kernel_size=1, stride=stride, bias=False),
-                                            nn.BatchNorm2d(planes))
+                                            nn.BatchNorm2d(planes, momentum=BN_momentum))
         else:
             self.downsample = lambda x: x
         self.stride = stride
@@ -150,17 +152,17 @@ class SEBottleneck(nn.Module):
     def __init__(self, inplanes, planes, stride=1, reduction=16):
         super(SEBottleneck, self).__init__()
         self.conv1 = nn.Conv2d(inplanes, planes, kernel_size=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(planes)
+        self.bn1 = nn.BatchNorm2d(planes, momentum=BN_momentum)
         self.conv2 = nn.Conv2d(planes, planes, kernel_size=3, stride=stride,
                                padding=1, bias=False)
-        self.bn2 = nn.BatchNorm2d(planes)
+        self.bn2 = nn.BatchNorm2d(planes, momentum=BN_momentum)
         self.conv3 = nn.Conv2d(planes, planes * self.expansion, kernel_size=1, bias=False)
-        self.bn3 = nn.BatchNorm2d(planes * self.expansion)
+        self.bn3 = nn.BatchNorm2d(planes * self.expansion, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.se = SE(planes * self.expansion, reduction)
         if inplanes != planes * self.expansion:
             self.downsample = nn.Sequential(nn.Conv2d(inplanes, planes * self.expansion, kernel_size=1, stride=stride, bias=False),
-                                            nn.BatchNorm2d(planes * self.expansion))
+                                            nn.BatchNorm2d(planes * self.expansion, momentum=BN_momentum))
         else:
             self.downsample = lambda x: x
         self.stride = stride
@@ -254,7 +256,7 @@ class CifarSENet(nn.Module):
         super(CifarSENet, self).__init__()
         self.inplane = 16
         self.conv1 = nn.Conv2d(3, self.inplane, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.BatchNorm2d(self.inplane)
+        self.bn1 = nn.BatchNorm2d(self.inplane, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.layer1 = self._make_layer(block, 16, blocks=n_size, stride=1, reduction=reduction)
         self.layer2 = self._make_layer(block, 32, blocks=n_size, stride=2, reduction=reduction)
@@ -322,14 +324,14 @@ def se_resnet56(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
-    model = CifarSENet(SEBottleneck, 9, **kwargs)
+    model = CifarSENet(SEBasicBlock, 9, **kwargs)
     return model
 
 def se_resnet110(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
-    model = CifarSENet(SEBottleneck, 18, **kwargs)
+    model = CifarSENet(SEBasicBlock, 18, **kwargs)
     return model
 
 def resnet20(**kwargs):
@@ -359,12 +361,12 @@ def resnet56(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
-    model = CifarSENet(Bottleneck, 9, **kwargs)
+    model = CifarSENet(BasicBlock, 9, **kwargs)
     return model
 
 def resnet110(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
-    model = CifarSENet(Bottleneck, 18, **kwargs)
+    model = CifarSENet(BasicBlock, 18, **kwargs)
     return model
