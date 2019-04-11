@@ -15,8 +15,8 @@ class Trainer(object):
         return self.iteration(data, True)
 
     def test(self, data):
-        self.model.train()
-        _ = self.iteration(data, True, True)
+#        self.model.train()
+#        _ = self.iteration(data, True, True)
         self.model.eval()
         return self.iteration(data, False)
 
