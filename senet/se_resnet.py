@@ -8,8 +8,8 @@ from torchvision.models import ResNet
 from senet.se_layer import SqueezeExcitationLayer as SE
 
 __all__ = ['se_resnet18', 'se_resnet34', 'se_resnet50', 'se_resnet101',
-           'se_resnet152', 'se_resnet20', 'se_resnet32', 'se_resnet44', 'se_resnet56', 'se_resnet110',
-           'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110']
+           'se_resnet152', 'se_resnet20', 'se_resnet32', 'se_resnet44', 'se_resnet56', 'se_resnet110', 'se_resnet164',
+           'resnet20', 'resnet32', 'resnet44', 'resnet56', 'resnet110', 'resnet164']
 
 model_urls = {
     'se_resnet18': None,
@@ -334,6 +334,13 @@ def se_resnet110(**kwargs):
     model = CifarSENet(SEBasicBlock, 18, **kwargs)
     return model
 
+def se_resnet164(**kwargs):
+    """Constructs a ResNet-34 model.
+
+    """
+    model = CifarSENet(SEBasicBlock, 27, **kwargs)
+    return model
+
 def resnet20(**kwargs):
     """Constructs a ResNet-18 model.
 
@@ -369,4 +376,11 @@ def resnet110(**kwargs):
 
     """
     model = CifarSENet(BasicBlock, 18, **kwargs)
+    return model
+
+def resnet164(**kwargs):
+    """Constructs a ResNet-34 model.
+
+    """
+    model = CifarSENet(BasicBlock, 27, **kwargs)
     return model
