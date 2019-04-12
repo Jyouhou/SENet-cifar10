@@ -21,8 +21,9 @@ Machine Learning Homework
 2. [x] 周1：简单implement
 3. [x] 周2：add bottleneck
 3. [x] 周3-4：认真研读resnet和senet，复现出paper的accuracy
-4. [ ] 周5-7：提升+写报告
-5. [ ] 周五：可能要check下senet paper里的结果为什么这么好
+5. [x] 周五：可能要check下senet paper里的结果为什么这么好 -- > 新的resnet结构
+6. [ ] 周6：提升到paper水平，整理好实验
+7. [ ] 周7：写报告
 
 
 ## how to run
