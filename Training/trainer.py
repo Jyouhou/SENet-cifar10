@@ -2,6 +2,12 @@ import tqdm
 import torch
 import torch.nn.functional as F
 
+
+def LR_decay(optim, rate=1e-1):
+    for param_group in optim.param_groups:
+        param_group['lr'] *= rate
+
+
 class Trainer(object):
     def __init__(self, model, optimizer, scheduler, GPU=4):
         self.model = model
@@ -10,6 +16,7 @@ class Trainer(object):
         self.GPU = GPU
         if self.GPU > 1:
             self.multi_model = torch.nn.DataParallel(self.model, device_ids=[i for i in range(self.GPU)])
+        self.GLOBAL_STEP = 0
     def train(self, data):
         self.model.train()
         return self.iteration(data, True)
@@ -28,6 +35,11 @@ class Trainer(object):
             tot_acc = []
         for step, (data, label) in enumerate(data):
             if train:
+                if self.GLOBAL_STEP == 0:
+                    LR_decay(self.optimizer)
+                elif self.GLOBAL_STEP == 400:
+                    LR_decay(self.optimizer, 10)
+                self.GLOBAL_STEP += 1
                 if self.GPU > 0:
                     logit = self.multi_model(data)
                 else:
