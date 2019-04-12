@@ -6,15 +6,12 @@ import random
 import torch.optim as optim
 from Training import Trainer, DataLoader
 import senet
-from torchvision.models import resnet
 
 
 def main():
     loader = DataLoader(aug=args.aug)
     if args.network in dir(senet):
-        model = getattr(senet, args.network)(num_classes=10)
-    elif args.network in dir(resnet):
-        model = getattr(resnet, args.network)(num_classes=10)
+        model = getattr(senet, args.network)(num_classes=10, new_resnet=args.new_resnet)
     else:
         raise ValueError('no such model')
     model.cuda()
@@ -59,6 +56,7 @@ if __name__ == '__main__':
     parser.add_argument("--m", type=float, default=9e-1)
     parser.add_argument("--wd", type=float, default=1e-4)
     parser.add_argument("--aug", action='store_true')
+    parser.add_argument("--new_resnet", action='store_true')
     args = parser.parse_args()
     h_acc = main()
     ID = f'{random.random():.6f}'
