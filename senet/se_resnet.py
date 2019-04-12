@@ -34,7 +34,7 @@ class BasicBlock(nn.Module):
         super(BasicBlock, self).__init__()
         self.new_resnet = new_resnet
         self.conv1 = conv3x3(inplanes, planes, stride)
-        self.bn1 = nn.BatchNorm2d(planes, momentum=BN_momentum)
+        self.bn1 = nn.BatchNorm2d(inplanes, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = nn.BatchNorm2d(planes, momentum=BN_momentum)
@@ -97,7 +97,7 @@ class SEBasicBlock(nn.Module):
         super(SEBasicBlock, self).__init__()
         self.new_resnet = new_resnet
         self.conv1 = conv3x3(inplanes, planes, stride)
-        self.bn1 = nn.BatchNorm2d(planes, momentum=BN_momentum)
+        self.bn1 = nn.BatchNorm2d(inplanes, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes, 1)
         self.bn2 = nn.BatchNorm2d(planes, momentum=BN_momentum)

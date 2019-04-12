@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="181fffb2-d10f-4135-94c0-2f6a7a590f50" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Cifar10.py" afterPath="$PROJECT_DIR$/Cifar10.py" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change beforePath="$PROJECT_DIR$/senet/se_resnet.py" afterPath="$PROJECT_DIR$/senet/se_resnet.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -15,29 +13,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Cifar10.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Cifar10.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Cifar10.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="87" lean-forward="false" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="87" />
+            <state relative-caret-position="90">
+              <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
                 <marker date="1555047484206" expanded="true" signature="139:164" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="se_resnet.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="se_resnet.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+            <state relative-caret-position="155">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="e#62#83#0" expanded="true" />
-                <element signature="e#1769#2083#0" expanded="false" />
-                <element signature="e#2471#2582#0" expanded="false" />
-                <element signature="e#3520#3860#0" expanded="false" />
+                <element signature="e#910#2584#0" expanded="false" />
+                <element signature="e#1771#2085#0" expanded="false" />
+                <element signature="e#2473#2584#0" expanded="false" />
+                <element signature="e#3524#3864#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -236,9 +234,10 @@
           <caret line="257" column="41" lean-forward="true" selection-start-line="257" selection-start-column="41" selection-end-line="257" selection-end-column="41" />
           <folding>
             <element signature="e#62#83#0" expanded="true" />
-            <element signature="e#1769#2083#0" expanded="false" />
-            <element signature="e#2471#2582#0" expanded="false" />
-            <element signature="e#3520#3860#0" expanded="false" />
+            <element signature="e#910#2584#0" expanded="false" />
+            <element signature="e#1771#2085#0" expanded="false" />
+            <element signature="e#2473#2584#0" expanded="false" />
+            <element signature="e#3524#3864#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -282,9 +281,10 @@
           <caret line="6" column="37" lean-forward="true" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
           <folding>
             <element signature="e#62#83#0" expanded="true" />
-            <element signature="e#1769#2083#0" expanded="false" />
-            <element signature="e#2471#2582#0" expanded="false" />
-            <element signature="e#3520#3860#0" expanded="false" />
+            <element signature="e#910#2584#0" expanded="false" />
+            <element signature="e#1771#2085#0" expanded="false" />
+            <element signature="e#2473#2584#0" expanded="false" />
+            <element signature="e#3524#3864#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -294,7 +294,6 @@
         <state relative-caret-position="420">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
             <marker date="1555047484206" expanded="true" signature="139:164" ph="..." />
           </folding>
         </state>
@@ -339,9 +338,10 @@
           <caret line="168" column="31" lean-forward="false" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
           <folding>
             <element signature="e#62#83#0" expanded="true" />
-            <element signature="e#1769#2083#0" expanded="false" />
-            <element signature="e#2471#2582#0" expanded="false" />
-            <element signature="e#3520#3860#0" expanded="false" />
+            <element signature="e#910#2584#0" expanded="false" />
+            <element signature="e#1771#2085#0" expanded="false" />
+            <element signature="e#2473#2584#0" expanded="false" />
+            <element signature="e#3524#3864#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -385,9 +385,10 @@
           <caret line="168" column="31" lean-forward="false" selection-start-line="168" selection-start-column="31" selection-end-line="168" selection-end-column="31" />
           <folding>
             <element signature="e#62#83#0" expanded="true" />
-            <element signature="e#1769#2083#0" expanded="false" />
-            <element signature="e#2471#2582#0" expanded="false" />
-            <element signature="e#3520#3860#0" expanded="false" />
+            <element signature="e#910#2584#0" expanded="false" />
+            <element signature="e#1771#2085#0" expanded="false" />
+            <element signature="e#2473#2584#0" expanded="false" />
+            <element signature="e#3524#3864#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -397,7 +398,6 @@
         <state relative-caret-position="420">
           <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
             <marker date="1555047484206" expanded="true" signature="139:164" ph="..." />
           </folding>
         </state>
@@ -408,7 +408,6 @@
         <state relative-caret-position="210">
           <caret line="19" column="31" lean-forward="true" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
             <marker date="1555047484206" expanded="true" signature="139:164" ph="..." />
           </folding>
         </state>
@@ -453,9 +452,10 @@
           <caret line="144" column="16" lean-forward="false" selection-start-line="144" selection-start-column="4" selection-end-line="144" selection-end-column="16" />
           <folding>
             <element signature="e#62#83#0" expanded="true" />
-            <element signature="e#1769#2083#0" expanded="false" />
-            <element signature="e#2471#2582#0" expanded="false" />
-            <element signature="e#3520#3860#0" expanded="false" />
+            <element signature="e#910#2584#0" expanded="false" />
+            <element signature="e#1771#2085#0" expanded="false" />
+            <element signature="e#2473#2584#0" expanded="false" />
+            <element signature="e#3524#3864#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -484,9 +484,10 @@
           <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="e#62#83#0" expanded="true" />
-            <element signature="e#1769#2083#0" expanded="false" />
-            <element signature="e#2471#2582#0" expanded="false" />
-            <element signature="e#3520#3860#0" expanded="false" />
+            <element signature="e#910#2584#0" expanded="false" />
+            <element signature="e#1771#2085#0" expanded="false" />
+            <element signature="e#2473#2584#0" expanded="false" />
+            <element signature="e#3524#3864#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -497,7 +498,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
             <marker date="1555047484206" expanded="true" signature="139:164" ph="..." />
           </folding>
         </state>
@@ -620,26 +620,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
+    <entry file="file://$PROJECT_DIR$/Cifar10.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="34" column="36" lean-forward="true" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+        <state relative-caret-position="90">
+          <caret line="6" column="40" lean-forward="true" selection-start-line="6" selection-start-column="40" selection-end-line="6" selection-end-column="40" />
           <folding>
-            <element signature="e#62#83#0" expanded="true" />
-            <element signature="e#1769#2083#0" expanded="false" />
-            <element signature="e#2471#2582#0" expanded="false" />
-            <element signature="e#3520#3860#0" expanded="false" />
+            <marker date="1555047484206" expanded="true" signature="139:164" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Cifar10.py">
+    <entry file="file://$PROJECT_DIR$/senet/se_resnet.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="87" lean-forward="false" selection-start-line="13" selection-start-column="77" selection-end-line="13" selection-end-column="87" />
+        <state relative-caret-position="155">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
-            <marker date="1555047484206" expanded="true" signature="139:164" ph="..." />
+            <element signature="e#62#83#0" expanded="true" />
+            <element signature="e#910#2584#0" expanded="false" />
+            <element signature="e#1771#2085#0" expanded="false" />
+            <element signature="e#2473#2584#0" expanded="false" />
+            <element signature="e#3524#3864#0" expanded="false" />
           </folding>
         </state>
       </provider>
