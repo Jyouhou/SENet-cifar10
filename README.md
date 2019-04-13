@@ -22,8 +22,9 @@ Machine Learning Homework
 3. [x] 周2：add bottleneck
 3. [x] 周3-4：认真研读resnet和senet，复现出paper的accuracy
 5. [x] 周五：可能要check下senet paper里的结果为什么这么好 -- > 新的resnet结构
-6. [ ] 周6：提升到paper水平，整理好实验
-7. [ ] 周7：写报告
+6. [x] 周6：提升到paper水平，整理好实验
+7. [ ] 周6：实现cut-out
+8. [ ] 周7：写报告
 
 
 ## how to run
@@ -38,11 +39,10 @@ Machine Learning Homework
 | 0410 | res32 | generic | default  | 92.96 (+0.47) | 92.55 (+0.06) | 92.49 | `id=` |
 | 0410 | res44 | generic | default | 93.53 (+0.70) | 92.76 (-0.07) | 92.83 | `id=` |
 | 0410 | res56 | generic | default  | 94.02 (+0.99) | 93.62 (+0.59) | 93.03 | `id=` |
-| 0411 | res110 | generic | default  |94.53 (+1.14)| 93.70 (+0.31) | 93.39 | `id=` |
+| 0411 | res110 | generic | default  |94.70 (+1.31) | 93.70 (+0.31) | 93.39 | `id=` |
 | 0411 | res20 | generic | bs=64 | 92.79 (+1.54) | 92.50 (+1.25) | 91.25 | `id=` |
-| 0411 | res164 | generic | default  | 94.30 | 93.82 | - | `id=` |
-| 0412 | newresnet110 | generic | default  | - | - | 93.63 | `id=` |
-| 0412 | newresnet164 | generic | default  | - | - | 94.54 | `id=` |
+| 0411 | res110 | generic | bs=64 | 94.81 (+1.18) | 94.61 (+0.98) | (93.63) | `id=` |
+
 
 - DA: `generic = pad=4, crop=32; horizontal flip`, `assorted = using--aug`
 - optim: `default = SGD(lr=0.1,m=0.9,wd=1e-4, bs=128)`

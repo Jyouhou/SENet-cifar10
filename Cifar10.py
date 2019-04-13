@@ -9,7 +9,7 @@ import senet
 
 
 def main():
-    loader = DataLoader(aug=args.aug)
+    loader = DataLoader(aug=args.aug, cutout=args.cutout)
     if args.network in dir(senet):
         model = getattr(senet, args.network)(num_classes=10, new_resnet=args.new_resnet)
     else:
@@ -57,6 +57,7 @@ if __name__ == '__main__':
     parser.add_argument("--wd", type=float, default=1e-4)
     parser.add_argument("--aug", action='store_true')
     parser.add_argument("--new_resnet", action='store_true')
+    parser.add_argument("--cutout", type=int, default=0)
     args = parser.parse_args()
     h_acc = main()
     ID = f'{random.random():.6f}'

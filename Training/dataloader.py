@@ -1,9 +1,47 @@
 import torch
 from torchvision.datasets import CIFAR10
 import torchvision.transforms as transforms
+from PIL import Image
+import random
+
+
+class ModifiedCifar(CIFAR10):
+    def __init__(self, root, train=True,
+                 transform=None, target_transform=None,
+                 download=False, cutout=0):
+        super(ModifiedCifar, self).__init__(root, train,
+                                            transform, target_transform,
+                                            download)
+        self.cutout = cutout
+
+    def __getitem__(self, index):
+        """
+        Args:
+            index (int): Index
+
+        Returns:
+            tuple: (image, target) where target is index of the target class.
+        """
+        img, target = super(ModifiedCifar, self).__getitem__(index)
+
+        if self.train and self.cutout > 1:
+            _, h, w = img.size()
+            center_x = random.randint(0, w - 1)
+            x_min = max(0, center_x - self.cutout // 2)
+            x_max = min(w-1, center_x + self.cutout // 2)
+
+            center_y = random.randint(0, h - 1)
+            y_min = max(0, center_y - self.cutout // 2)
+            y_max = min(h-1, center_y + self.cutout // 2)
+
+            img[:, y_min:y_max, x_min:x_max] *= 0.
+
+        return img, target
+
 
 class DataLoader(object):
-    def __init__(self, aug=True):
+    def __init__(self, aug=True, cutout=0):
+        self.cutout = cutout
         if aug:
             transform_scheme = transforms.Compose([
                 transforms.RandomResizedCrop(32,
@@ -34,19 +72,21 @@ class DataLoader(object):
         ])
 
         # training set
-        self.train_set = CIFAR10(
+        self.train_set = ModifiedCifar(
             root=f'./data/',
             train=True,
             download=True,
-            transform=transform_scheme)
+            transform=transform_scheme,
+            cutout=cutout)
         self.training_set_size = self.train_set.data.shape[0]
 
         # test set
-        self.test_set = CIFAR10(
+        self.test_set = ModifiedCifar(
             root=f'./data/',
             train=False,
             download=True,
-            transform=test_transform_scheme)
+            transform=test_transform_scheme,
+            cutout=cutout)
 
     def generator(self, train=True, batch_size=128, GPU_num=4, num_worker=8, CUDA=True):
 
