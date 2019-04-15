@@ -20,6 +20,7 @@ model_urls = {
 
 BN_momentum = 0.1
 
+
 def conv3x3(in_planes, out_planes, stride=1):
     return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False)
 
@@ -87,7 +88,6 @@ class BasicBlock(nn.Module):
             return self._new_resnet(x)
         else:
             return self._old_resnet(x)
-
 
 class SEBasicBlock(nn.Module):
     expansion = 1
@@ -157,10 +157,11 @@ class CifarNet(nn.Module):
     """
     This is specially designed for cifar10
     """
-    def __init__(self, block, n_size, num_classes=10, reduction=16, new_resnet=False):
+    def __init__(self, block, n_size, num_classes=10, reduction=16, new_resnet=False, dropout=0.):
         super(CifarNet, self).__init__()
         self.inplane = 16
         self.new_resnet = new_resnet
+        self.dropout_prob = dropout
         self.conv1 = nn.Conv2d(3, self.inplane, kernel_size=3, stride=1, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(self.inplane, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
@@ -168,6 +169,8 @@ class CifarNet(nn.Module):
         self.layer2 = self._make_layer(block, 32, blocks=n_size, stride=2, reduction=reduction)
         self.layer3 = self._make_layer(block, 64, blocks=n_size, stride=2, reduction=reduction)
         self.avgpool = nn.AdaptiveAvgPool2d(1)
+        if self.dropout_prob > 0:
+            self.dropout_layer = nn.Dropout(p=self.dropout_prob, inplace=True)
         self.fc = nn.Linear(self.inplane, num_classes)
         self.initialize()
 
@@ -199,6 +202,8 @@ class CifarNet(nn.Module):
 
         x = self.avgpool(x)
         x = x.view(x.size(0), -1)
+        if self.dropout_prob > 0:
+            x = self.dropout_layer(x)
         x = self.fc(x)
 
         return x
@@ -209,7 +214,6 @@ def se_resnet20(**kwargs):
     """
     model = CifarNet(SEBasicBlock, 3, **kwargs)
     return model
-
 
 def se_resnet32(**kwargs):
     """Constructs a ResNet-34 model.
@@ -224,7 +228,6 @@ def se_resnet44(**kwargs):
     """
     model = CifarNet(SEBasicBlock, 5, **kwargs)
     return model
-
 
 def se_resnet56(**kwargs):
     """Constructs a ResNet-34 model.
@@ -254,7 +257,6 @@ def resnet20(**kwargs):
     model = CifarNet(BasicBlock, 3, **kwargs)
     return model
 
-
 def resnet32(**kwargs):
     """Constructs a ResNet-34 model.
 
@@ -268,7 +270,6 @@ def resnet44(**kwargs):
     """
     model = CifarNet(BasicBlock, 5, **kwargs)
     return model
-
 
 def resnet56(**kwargs):
     """Constructs a ResNet-34 model.

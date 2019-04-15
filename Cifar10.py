@@ -11,7 +11,7 @@ import senet
 def main():
     loader = DataLoader(aug=args.aug, cutout=args.cutout)
     if args.network in dir(senet):
-        model = getattr(senet, args.network)(num_classes=10, new_resnet=args.new_resnet)
+        model = getattr(senet, args.network)(num_classes=10, new_resnet=args.new_resnet, dropout=args.dropout)
     else:
         raise ValueError('no such model')
     model.cuda()
@@ -58,6 +58,7 @@ if __name__ == '__main__':
     parser.add_argument("--aug", action='store_true')
     parser.add_argument("--new_resnet", action='store_true')
     parser.add_argument("--cutout", type=int, default=0)
+    parser.add_argument("--dropout", type=float, default=0., help="probability of discarding features")
     args = parser.parse_args()
     h_acc = main()
     ID = f'{random.random():.6f}'

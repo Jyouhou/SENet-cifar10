@@ -8,7 +8,7 @@ Machine Learning Homework
 ## Timeline:
 1. [x] check and re-write code
 2. [x] 这周：reimplement the 93% experiment (92.67) 
-3. [ ] 下周：整理几个经典的classification paper，加东西
+3. [x] 下周：整理几个经典的classification paper，加东西
 
 
 ### tricks
@@ -23,8 +23,11 @@ Machine Learning Homework
 3. [x] 周3-4：认真研读resnet和senet，复现出paper的accuracy
 5. [x] 周五：可能要check下senet paper里的结果为什么这么好 -- > 新的resnet结构
 6. [x] 周6：提升到paper水平，整理好实验
-7. [ ] 周6：实现cut-out
-8. [ ] 周7：写报告
+7. [x] 周6：实现cut-out
+9. [x] 4.14-16：炼丹
+10. [x] 4.15: 对cutout和dropout进行比较
+10. [ ] 4.16：写报告
+10. [ ] ddl 4.17
 
 
 ## how to run
@@ -35,13 +38,13 @@ Machine Learning Homework
 ## Performance
 | experiment | network | Optim | Acc(+se +cutout) | Acc(+se) | Acc (my) | Acc(resnet paper) | code |
 |:------:|:------------:|:------:|:------:|:------:|:------:|:------:|:------:|:------------:|
-| 0410 | res20 | default | 93.11 (+1.86) | 92.15 (+0.90) | 92.08 (+0.83) | 91.25 | `id=` |
-| 0410 | res32 | default | 94.05 (+1.56) | 92.96 (+0.47) | 92.55 (+0.06) | 92.49 | `id=` |
+| 0410 | res20 | default | 93.49 (+2.24) | 92.15 (+0.90) | 92.08 (+0.83) | 91.25 | `id=` |
+| 0410 | res32 | default | 94.20 (+1.71) | 92.96 (+0.47) | 92.55 (+0.06) | 92.49 | `id=` |
 | 0410 | res44 | default | 93.95 (+1.12) | 93.53 (+0.70) | 92.76 (-0.07) | 92.83 | `id=` |
 | 0410 | res56 | default | 95.15 (+2.12) | 94.02 (+0.99) | 93.62 (+0.59) | 93.03 | `id=` |
-| 0411 | res110 | default | - |94.70 (+1.31) | 93.70 (+0.31) | 93.39 | `id=` |
+| 0411 | res110 | default | 95.63 (+2.24) |94.70 (+1.31) | 93.70 (+0.31) | 93.39 | `id=` |
 | 0411 | res20 | bs=64 | 93.46 (+2.21) | 92.79 (+1.54) | 92.50 (+1.25) | 91.25 | `id=` |
-| 0411 | res110 | bs=64 | - | 94.81 (+1.18) | 94.61 (+0.98) | (93.63) | `id=` |
+| 0411 | res110 | bs=64 | 95.85 (+2.22) | 94.81 (+1.18) | 94.61 (+0.98) | (93.63) | `id=` |
 
 
 - DA: `generic = pad=4, crop=32; horizontal flip`, `assorted = using--aug`
