@@ -226,7 +226,7 @@ def se_resnet44(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
-    model = CifarNet(SEBasicBlock, 5, **kwargs)
+    model = CifarNet(SEBasicBlock, 7, **kwargs)
     return model
 
 def se_resnet56(**kwargs):
@@ -268,7 +268,7 @@ def resnet44(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
-    model = CifarNet(BasicBlock, 5, **kwargs)
+    model = CifarNet(BasicBlock, 7, **kwargs)
     return model
 
 def resnet56(**kwargs):
