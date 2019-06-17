@@ -1,7 +1,5 @@
-import tqdm
 import torch
 import torch.nn.functional as F
-
 
 
 class Trainer(object):
@@ -11,14 +9,16 @@ class Trainer(object):
         self.scheduler = scheduler
         self.GPU = GPU
         if self.GPU > 1:
-            self.multi_model = torch.nn.DataParallel(self.model, device_ids=[i for i in range(self.GPU)])
+            self.multi_model = torch.nn.DataParallel(
+                self.model, device_ids=[i for i in range(self.GPU)])
+
     def train(self, data):
         self.model.train()
         return self.iteration(data, True)
 
     def test(self, data):
-#        self.model.train()
-#        _ = self.iteration(data, True, True)
+        #        self.model.train()
+        #        _ = self.iteration(data, True, True)
         self.model.eval()
         return self.iteration(data, False)
 
@@ -42,9 +42,12 @@ class Trainer(object):
                 if not only_update_batch:
                     self.optimizer.step()
                     loss_float = float(torch.sum(loss.cpu()))
-                    acc_float = float(sum((pred == label).float()) / pred.size(0))
-                    MA_loss *= 0.9; MA_loss += 0.1 * loss_float
-                    MA_acc *= 0.9; MA_acc += 0.1 * acc_float
+                    acc_float = float(
+                        sum((pred == label).float()) / pred.size(0))
+                    MA_loss *= 0.9
+                    MA_loss += 0.1 * loss_float
+                    MA_acc *= 0.9
+                    MA_acc += 0.1 * acc_float
                 else:
                     if step > 20:
                         break

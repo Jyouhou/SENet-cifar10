@@ -11,7 +11,8 @@ import senet
 def main():
     loader = DataLoader(aug=args.aug, cutout=args.cutout)
     if args.network in dir(senet):
-        model = getattr(senet, args.network)(num_classes=10, new_resnet=args.new_resnet, dropout=args.dropout)
+        model = getattr(senet, args.network)(
+            num_classes=10, new_resnet=args.new_resnet, dropout=args.dropout)
     else:
         raise ValueError('no such model')
     model.cuda()
@@ -20,32 +21,32 @@ def main():
                           momentum=args.m,
                           weight_decay=args.wd)
     scheduler = optim.lr_scheduler.MultiStepLR(
-            optimizer, milestones=[85, 130, 180], gamma=0.1)
+        optimizer, milestones=[85, 130, 180], gamma=0.1)
     trainer = Trainer(model, optimizer, scheduler, args.GPU)
     his_max_acc = []
     for e in range(args.epochs):
         scheduler.step()
         t0 = time.time()
         loss, acc = trainer.train(loader.generator(True,
-                                       args.batch_size,
-                                       args.GPU))
+                                                   args.batch_size,
+                                                   args.GPU))
         t1 = time.time()
         print(f'===== ===== Epoch {e+1}/{args.epochs} ===== =====')
-        print(f'    train accuracy = {acc}, loss = {loss}, time lapse {t1-t0} seconds')
+        print(
+            f'    train accuracy = {acc}, loss = {loss}, time lapse {t1-t0} seconds')
 
         t0 = time.time()
         acc = trainer.test(loader.generator(False,
-                                       args.batch_size,
-                                       args.GPU))
+                                            args.batch_size,
+                                            args.GPU))
         his_max_acc.append(acc)
         t1 = time.time()
-        print(f'    test accuracy = {acc}, best acc = {max(his_max_acc)}, time lapse {t1-t0} seconds')
+        print(
+            f'    test accuracy = {acc}, best acc = {max(his_max_acc)}, time lapse {t1-t0} seconds')
     return his_max_acc
 
 
-
 if __name__ == '__main__':
-
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--epochs", type=int, default=256)
@@ -58,10 +59,11 @@ if __name__ == '__main__':
     parser.add_argument("--aug", action='store_true')
     parser.add_argument("--new_resnet", action='store_true')
     parser.add_argument("--cutout", type=int, default=0)
-    parser.add_argument("--dropout", type=float, default=0., help="probability of discarding features")
+    parser.add_argument("--dropout", type=float, default=0.,
+                        help="probability of discarding features")
     args = parser.parse_args()
     h_acc = main()
     ID = f'{random.random():.6f}'
     print(f'saved to: ID = {ID}')
     with open(f'./result-{ID}.txt', 'w')as f:
-        print(','.join(map(str,h_acc)), file=f)
+        print(','.join(map(str, h_acc)), file=f)

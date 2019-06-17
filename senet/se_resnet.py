@@ -3,8 +3,6 @@ The script is adapted from torchvision.models.ResNet
 """
 
 import torch.nn as nn
-import torch.utils.model_zoo as model_zoo
-from torchvision.models import ResNet
 from senet.se_layer import SqueezeExcitationLayer as SE
 
 __all__ = ['se_resnet20', 'se_resnet32', 'se_resnet44', 'se_resnet56', 'se_resnet110', 'se_resnet164',
@@ -24,9 +22,11 @@ BN_momentum = 0.1
 def conv3x3(in_planes, out_planes, stride=1):
     return nn.Conv2d(in_planes, out_planes, kernel_size=3, stride=stride, padding=1, bias=False)
 
+
 def conv1x1(in_planes, out_planes, stride=1):
     """1x1 convolution"""
     return nn.Conv2d(in_planes, out_planes, kernel_size=1, stride=stride, bias=False)
+
 
 class BasicBlock(nn.Module):
     expansion = 1
@@ -35,7 +35,8 @@ class BasicBlock(nn.Module):
         super(BasicBlock, self).__init__()
         self.new_resnet = new_resnet
         self.conv1 = conv3x3(inplanes, planes, stride)
-        self.bn1 = nn.BatchNorm2d(inplanes if new_resnet else planes, momentum=BN_momentum)
+        self.bn1 = nn.BatchNorm2d(
+            inplanes if new_resnet else planes, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes)
         self.bn2 = nn.BatchNorm2d(planes, momentum=BN_momentum)
@@ -89,6 +90,7 @@ class BasicBlock(nn.Module):
         else:
             return self._old_resnet(x)
 
+
 class SEBasicBlock(nn.Module):
     expansion = 1
 
@@ -96,7 +98,8 @@ class SEBasicBlock(nn.Module):
         super(SEBasicBlock, self).__init__()
         self.new_resnet = new_resnet
         self.conv1 = conv3x3(inplanes, planes, stride)
-        self.bn1 = nn.BatchNorm2d(inplanes if new_resnet else planes, momentum=BN_momentum)
+        self.bn1 = nn.BatchNorm2d(
+            inplanes if new_resnet else planes, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
         self.conv2 = conv3x3(planes, planes, 1)
         self.bn2 = nn.BatchNorm2d(planes, momentum=BN_momentum)
@@ -153,21 +156,27 @@ class SEBasicBlock(nn.Module):
         else:
             return self._old_resnet(x)
 
+
 class CifarNet(nn.Module):
     """
     This is specially designed for cifar10
     """
+
     def __init__(self, block, n_size, num_classes=10, reduction=16, new_resnet=False, dropout=0.):
         super(CifarNet, self).__init__()
         self.inplane = 16
         self.new_resnet = new_resnet
         self.dropout_prob = dropout
-        self.conv1 = nn.Conv2d(3, self.inplane, kernel_size=3, stride=1, padding=1, bias=False)
+        self.conv1 = nn.Conv2d(
+            3, self.inplane, kernel_size=3, stride=1, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(self.inplane, momentum=BN_momentum)
         self.relu = nn.ReLU(inplace=True)
-        self.layer1 = self._make_layer(block, 16, blocks=n_size, stride=1, reduction=reduction)
-        self.layer2 = self._make_layer(block, 32, blocks=n_size, stride=2, reduction=reduction)
-        self.layer3 = self._make_layer(block, 64, blocks=n_size, stride=2, reduction=reduction)
+        self.layer1 = self._make_layer(
+            block, 16, blocks=n_size, stride=1, reduction=reduction)
+        self.layer2 = self._make_layer(
+            block, 32, blocks=n_size, stride=2, reduction=reduction)
+        self.layer3 = self._make_layer(
+            block, 64, blocks=n_size, stride=2, reduction=reduction)
         self.avgpool = nn.AdaptiveAvgPool2d(1)
         if self.dropout_prob > 0:
             self.dropout_layer = nn.Dropout(p=self.dropout_prob, inplace=True)
@@ -186,7 +195,8 @@ class CifarNet(nn.Module):
         strides = [stride] + [1] * (blocks - 1)
         layers = []
         for stride in strides:
-            layers.append(block(self.inplane, planes, stride, reduction, new_resnet=self.new_resnet))
+            layers.append(block(self.inplane, planes, stride,
+                                reduction, new_resnet=self.new_resnet))
             self.inplane = layers[-1].output
 
         return nn.Sequential(*layers)
@@ -208,12 +218,14 @@ class CifarNet(nn.Module):
 
         return x
 
+
 def se_resnet20(**kwargs):
     """Constructs a ResNet-18 model.
 
     """
     model = CifarNet(SEBasicBlock, 3, **kwargs)
     return model
+
 
 def se_resnet32(**kwargs):
     """Constructs a ResNet-34 model.
@@ -222,12 +234,14 @@ def se_resnet32(**kwargs):
     model = CifarNet(SEBasicBlock, 5, **kwargs)
     return model
 
+
 def se_resnet44(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
     model = CifarNet(SEBasicBlock, 7, **kwargs)
     return model
+
 
 def se_resnet56(**kwargs):
     """Constructs a ResNet-34 model.
@@ -236,12 +250,14 @@ def se_resnet56(**kwargs):
     model = CifarNet(SEBasicBlock, 9, **kwargs)
     return model
 
+
 def se_resnet110(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
     model = CifarNet(SEBasicBlock, 18, **kwargs)
     return model
+
 
 def se_resnet164(**kwargs):
     """Constructs a ResNet-34 model.
@@ -250,12 +266,14 @@ def se_resnet164(**kwargs):
     model = CifarNet(SEBasicBlock, 27, **kwargs)
     return model
 
+
 def resnet20(**kwargs):
     """Constructs a ResNet-18 model.
 
     """
     model = CifarNet(BasicBlock, 3, **kwargs)
     return model
+
 
 def resnet32(**kwargs):
     """Constructs a ResNet-34 model.
@@ -264,12 +282,14 @@ def resnet32(**kwargs):
     model = CifarNet(BasicBlock, 5, **kwargs)
     return model
 
+
 def resnet44(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
     model = CifarNet(BasicBlock, 7, **kwargs)
     return model
+
 
 def resnet56(**kwargs):
     """Constructs a ResNet-34 model.
@@ -278,12 +298,14 @@ def resnet56(**kwargs):
     model = CifarNet(BasicBlock, 9, **kwargs)
     return model
 
+
 def resnet110(**kwargs):
     """Constructs a ResNet-34 model.
 
     """
     model = CifarNet(BasicBlock, 18, **kwargs)
     return model
+
 
 def resnet164(**kwargs):
     """Constructs a ResNet-34 model.

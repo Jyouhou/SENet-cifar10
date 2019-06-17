@@ -1,5 +1,6 @@
 from torch import nn
 
+
 class SqueezeExcitationLayer(nn.Module):
     def __init__(self,
                  channel,

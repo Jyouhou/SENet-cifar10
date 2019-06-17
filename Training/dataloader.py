@@ -1,7 +1,6 @@
 import torch
 from torchvision.datasets import CIFAR10
 import torchvision.transforms as transforms
-from PIL import Image
 import random
 
 

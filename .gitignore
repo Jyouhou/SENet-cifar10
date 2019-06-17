@@ -1,2 +1,7 @@
 
 *.pdf
+*/*pdf
+*.pyc
+*.pyc
+senet/__pycache__/__init__.cpython-37.pyc
+senet/__pycache__/se_resnet.cpython-37.pyc
