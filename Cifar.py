@@ -9,10 +9,14 @@ import senet
 
 
 def main():
-    loader = DataLoader(aug=args.aug, cutout=args.cutout)
+    loader = DataLoader(aug=args.aug, cutout=args.cutout, dataset=args.dataset)
+    if args.dataset == "cifar10":
+        num_classes = 10
+    elif args.dataset == "cifar100":
+        num_classes = 100
     if args.network in dir(senet):
         model = getattr(senet, args.network)(
-            num_classes=10, new_resnet=args.new_resnet, dropout=args.dropout)
+            num_classes=num_classes, new_resnet=args.new_resnet, dropout=args.dropout)
     else:
         raise ValueError('no such model')
     model.cuda()
@@ -61,6 +65,7 @@ if __name__ == '__main__':
     parser.add_argument("--cutout", type=int, default=0)
     parser.add_argument("--dropout", type=float, default=0.,
                         help="probability of discarding features")
+    parser.add_argument("--dataset", type=str, default='cifar10')
     args = parser.parse_args()
     h_acc = main()
     ID = f'{random.random():.6f}'

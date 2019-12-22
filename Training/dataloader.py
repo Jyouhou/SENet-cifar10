@@ -1,14 +1,14 @@
 import torch
-from torchvision.datasets import CIFAR10
+from torchvision.datasets import CIFAR10, CIFAR100
 import torchvision.transforms as transforms
 import random
 
 
-class ModifiedCifar(CIFAR10):
+class ModifiedCifar10(CIFAR10):
     def __init__(self, root, train=True,
                  transform=None, target_transform=None,
                  download=False, cutout=0):
-        super(ModifiedCifar, self).__init__(root, train,
+        super(ModifiedCifar10, self).__init__(root, train,
                                             transform, target_transform,
                                             download)
         self.cutout = cutout
@@ -21,7 +21,40 @@ class ModifiedCifar(CIFAR10):
         Returns:
             tuple: (image, target) where target is index of the target class.
         """
-        img, target = super(ModifiedCifar, self).__getitem__(index)
+        img, target = super(ModifiedCifar10, self).__getitem__(index)
+
+        if self.train and self.cutout > 1:
+            _, h, w = img.size()
+            center_x = random.randint(0, w - 1)
+            x_min = max(0, center_x - self.cutout // 2)
+            x_max = min(w-1, center_x + self.cutout // 2)
+
+            center_y = random.randint(0, h - 1)
+            y_min = max(0, center_y - self.cutout // 2)
+            y_max = min(h-1, center_y + self.cutout // 2)
+
+            img[:, y_min:y_max, x_min:x_max] *= 0.
+
+        return img, target
+
+class ModifiedCifar100(CIFAR100):
+    def __init__(self, root, train=True,
+                 transform=None, target_transform=None,
+                 download=False, cutout=0):
+        super(ModifiedCifar100, self).__init__(root, train,
+                                            transform, target_transform,
+                                            download)
+        self.cutout = cutout
+
+    def __getitem__(self, index):
+        """
+        Args:
+            index (int): Index
+
+        Returns:
+            tuple: (image, target) where target is index of the target class.
+        """
+        img, target = super(ModifiedCifar100, self).__getitem__(index)
 
         if self.train and self.cutout > 1:
             _, h, w = img.size()
@@ -39,7 +72,7 @@ class ModifiedCifar(CIFAR10):
 
 
 class DataLoader(object):
-    def __init__(self, aug=True, cutout=0):
+    def __init__(self, aug=True, cutout=0, dataset="cifar10"):
         self.cutout = cutout
         if aug:
             transform_scheme = transforms.Compose([
@@ -69,9 +102,16 @@ class DataLoader(object):
             transforms.Normalize((0.4914, 0.4822, 0.4465),
                                  (0.2023, 0.1994, 0.2010)),
         ])
+        
+        if dataset == "cifar10":
+            dataset_class = ModifiedCifar10
+        elif dataset == "cifar100":
+            dataset_class = ModifiedCifar100
+        else:
+            raise ValueError()
 
         # training set
-        self.train_set = ModifiedCifar(
+        self.train_set = dataset_class(
             root=f'./data/',
             train=True,
             download=True,
@@ -80,7 +120,7 @@ class DataLoader(object):
         self.training_set_size = self.train_set.data.shape[0]
 
         # test set
-        self.test_set = ModifiedCifar(
+        self.test_set = dataset_class(
             root=f'./data/',
             train=False,
             download=True,
